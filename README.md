@@ -41,7 +41,9 @@ Find the file `index.js` and complete the tasks.
 
 Edit the `ReadMe` file with your answers.
 
-1. In your own words, define closure (1-2 sentences).
+1. In your own words, define closure (1-2 sentences). 
+Closure lets a function within another function access the outer function's variables and code, and creates a function scope.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +65,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+Closure is used within the function personalDice(name). This is because the name parameter can be passed into the generic function that is nested within personalDice, and printed via console.log.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+The name "Dan" remains constant, but the value of newRoll changes each time.
+
 c. What is the lexical scope of `newRoll`? 
+
+newRoll is within a private or local scope.(Function scope.)
 
 ### Task 2c - Exit Ticket
 
