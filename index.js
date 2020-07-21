@@ -87,24 +87,18 @@ finalScore(inning, 9) might return:
 */ 
 
 function finalScore(inning, numInnings){
- 
-  function fullGame(){
-    let homeScore= 0;
-    let awayScore= 0;
-
-    for(let i = 0; i < numInnings; i++){
-    homeScore = homeScore + inning();
-    awayScore = awayScore + inning();
-    
+  let score = {
+    "Home": 0,
+    "Away": 0,
   }
-  return {
-    "Home": homeScore,
-    "Away": awayScore, 
-         };
+    for(let i = 0; i < numInnings; i++){
+    score.Home = score.Home + inning();
+    score.Away = score.Away + inning();    
+  }
+  return score; 
   
 }  
-return fullGame();
-}
+
 console.log("Task 3");
 console.log(finalScore(inning, 9));
 
@@ -127,24 +121,29 @@ and returns the score at each pont in the game, like so:
 8th inning: awayTeam - homeTeam
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
-function getInningScore(homeScore, awayScore){
-  
-  
-  homeScore = homeScore + inning();
-  awayScore = awayScore + inning();
-  return homeScore + " " + awayScore;
+
+function getInningScore(numInnings){
+  let score = {
+    "Home": 0,
+    "Away": 0,
+  }
+  for(let i = 1; i <= numInnings; i++){ // set i to 1 so that innings doesn't start with 0. Set as <=numInnings so that it counts from 1-9.
+    score.Home = score.Home + inning(); //modifies score object.
+    score.Away = score.Away + inning(); 
+    console.log("inning " + i + ": Away team: " + score.Away + " - " + "Home team: " + score.Home) //prints current score each inning/iteration
+    }
+    return "Final Score " + score.Away + " - " + score.Home; //Returns score totals after 9 innings.
 }
+
+
+
 
 function scoreboard(getInningScore, inning, numInnings){
-  for(let i = 0; i < numInnings; i++){
-  console.log(getInningScore(0,1));
-  }
-  
+
+console.log(getInningScore(9));
 }
+
 console.log("Task 4");
-console.log(scoreboard(getInningScore, inning, 9));
-
-
-
+scoreboard(getInningScore, inning, 9);
 
 
